@@ -5,11 +5,11 @@ if ! $(which docker); then
 fi
 
 if ! $(which xhost); then
-    # sudo apt install install x11-xserver-utils
-    # if 
-    echo Please install xhost on your machine. Run the following:
-    echo sudo apt install x11-xserver-utils
-    exit 1
+    if ! (sudo apt update && sudo apt -y install x11-xserver-utils); then
+        echo Please install xhost on your machine. Run the following:
+        echo sudo apt install x11-xserver-utils
+        exit 1
+    fi;
 fi
 
 docker build . -t ee431_toolchain
