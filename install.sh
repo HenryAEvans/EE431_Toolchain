@@ -12,5 +12,10 @@ if ! $(which xhost); then
     exit 1
 fi
 
-sudo chmod 777 /var/run/docker.sock
-docker build . -t ee431_toolchain 
+docker build . -t ee431_toolchain
+if ! [ $? -eq 0 ]; then
+    sudo groupadd docker || true
+    sudo usermod -aG docker $USER
+    sudo chmod 770 /var/run/docker.sock
+    echo "Log out, Log In, and Re Run This Script."
+fi

@@ -14,10 +14,10 @@ RUN make || true
 RUN make install
 
 WORKDIR /home/ee431
-# RUN mkdir -p /home/ee431/.xschem
-# RUN cp /usr/share/xschem/xschemrc /home/ee431/.xschem/xschemrc
 COPY xschemrc /home/ee431/xschemrc
-# RUN cat xschemrc >> /usr/share/xschem/xschemrc
 RUN cp share/pdk/sky130A/libs.tech/xschem/xschemrc xschemrc2
 RUN echo >> xschemrc 
 RUN cat xschemrc2 >> xschemrc
+
+RUN rm -rf git_open_pdks
+ENV HOME=/home/ee431
