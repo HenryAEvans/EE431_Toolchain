@@ -1,5 +1,5 @@
-set XSCHEM_LIBRARY_PATH /home/ee431/share/pdk/sky130A/libs.tech/xschem/
-set SKYWATER_MODELS /home/ee431/share/pdk/sky130A/libs.tech/ngspice
-set SKYWATER_STDCELLS /home/ee431/share/pdk/sky130A/libs.ref/sky130_fd_sc_hd/spice
+set XSCHEM_LIBRARY_PATH /usr/local/share/pdk/sky130A/libs.tech/xschem/
+set SKYWATER_MODELS /usr/local/share/pdk/sky130A/libs.tech/ngspice
+set SKYWATER_STDCELLS /usr/local/share/pdk/sky130A/libs.ref/sky130_fd_sc_hd/spice
 set USER_CONF_DIR /home/ee431/.xschem
-set PDK_ROOT /home/ee431/share/pdk
+set PDK_ROOT /usr/local/share/pdk
