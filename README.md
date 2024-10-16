@@ -51,6 +51,10 @@ You might be logged out after the installation takes place. Simply log back in y
 ### Step 1: Enter the Container
 To run magic, navigate to the directory where it is installed eg. `cd ~/EE431_Toolchain` then run the following command to enter the container
 
+```
+./run.sh
+```
+
 ### Step 2: Launch Magic
 Once in the container, simply type `magic` and the program should start up with a gui.
 
