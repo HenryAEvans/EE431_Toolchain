@@ -11,6 +11,14 @@ if ! $(which xhost); then
         exit 1
     fi;
 fi
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    # Mac OSX
+    if ! $(which Xquartz); then
+        echo Please verify that you have installed Xquartz and followed the permission instructions on Git Hub for Mac.
+        exit 1
+    fi
+
+fi
 
 docker build . -t ee431_toolchain
 if ! [ $? -eq 0 ]; then

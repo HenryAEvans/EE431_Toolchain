@@ -1,17 +1,40 @@
-# EE431_Toolchain
-This is a containerized environment for VLSI development in Cal Poly EE431
+# EE431 Tool Chain
+This is a containerized environment for VLSI development in Cal Poly EE431 to install and run the Magic VLSI suite along with the necessary dependencies. 
 
-# Install Docker
+# Prepare for Installation
 ## Windows
 To start, install [Docker Desktop](https://www.docker.com/products/docker-desktop/). Once set up, enable WSL integration so that your WSL instances can access docker.
 
 ![alt text](docs/docker.png)
-## Mac
-Install [Docker](https://www.docker.com/products/docker-desktop/). Support Unknown.
 
-# One Line Installer
-First, test that docker works by typing `docker`, making sure it does not warn you that you cannot access docker.
-Once docker is installed, paste this into your terminal.
+## Mac
+
+### Step 1: Install Docker
+Install [Docker](https://www.docker.com/products/docker-desktop/). 
+
+After installation open Docker from your mac, make an account and ensure the software is running.
+
+### Step 2: Install and Setup XQuartz
+Ensure XQuartz is Installed and Running:
+
+1. Install XQuartz from https://www.xquartz.org/. Launch XQuartz after installation. Configure XQuartz to Allow Network Connections:
+2. Go to XQuartz > Preferences > Security. Uncheck the option Authenticate connections. Check the option Allow connections from network clients.
+3. Restart XQuartz for the changes to take effect.
+
+## Linux
+
+Install [Docker](https://www.docker.com/products/docker-desktop/). 
+
+# Installation
+
+### Step 1: Test Docker
+
+Test that docker works by typing `docker`, making sure it does not warn you that you cannot access docker.
+
+### Step 2: Installation
+
+Once you have tested your Docker installation run the following command in your terminal in the location where you want the installation to take place.
+
 ```
 git clone https://github.com/HenryAEvans/EE431_Toolchain.git
 cd EE431_Toolchain
@@ -19,4 +42,15 @@ cd EE431_Toolchain
 su $USER -c ./install.sh
 logout
 ```
-Then, log back in. To use the tools, `cd ~/EE431_Toolchain` and run `./run.sh` to enter the container. 
+
+### Step 3: Log In
+You might be logged out after the installation takes place. Simply log back in your computer and the installation will be complete. 
+
+# Running Magic
+
+### Step 1: Enter the Container
+To run magic, navigate to the directory where it is installed eg. `cd ~/EE431_Toolchain` then run the following command to enter the container
+
+### Step 2: Launch Magic
+Once in the container, simply type `magic` and the program should start up with a gui.
+
