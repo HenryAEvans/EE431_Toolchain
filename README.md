@@ -17,7 +17,7 @@ After installation open Docker from your mac, make an account and ensure the sof
 ### Step 2: Install and Setup XQuartz
 Ensure XQuartz is Installed and Running:
 
-1. Install XQuartz from https://www.xquartz.org/. Launch XQuartz after installation. Configure XQuartz to Allow Network Connections:
+1. Install [XQuartz](https://www.xquartz.org/). Launch XQuartz after installation. Configure XQuartz to Allow Network Connections:
 2. Go to XQuartz > Preferences > Security. Uncheck the option Authenticate connections. Check the option Allow connections from network clients.
 3. Restart XQuartz for the changes to take effect.
 
@@ -58,3 +58,12 @@ To run magic, navigate to the directory where it is installed eg. `cd ~/EE431_To
 ### Step 2: Launch Magic
 Once in the container, simply type `magic` and the program should start up with a gui.
 
+# Verify installation
+
+To verify that you have Magic working properly, run this command in the Docker container.
+```
+xschem
+```
+After the command runs, a window should then open that looks like the below image with a bunch of patterns. 
+
+![Verification image filled with green patterns and traces on a black background](docs/verification.png)
