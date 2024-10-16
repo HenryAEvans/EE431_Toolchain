@@ -1,6 +1,7 @@
 set -x
 xhost local:root
-docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix \
+docker run -it -v $(pwd)/workspace:/home/ee431/workspace:rw\
+            -v /tmp/.X11-unix:/tmp/.X11-unix \
             -v /mnt/wslg:/mnt/wslg \
             -e DISPLAY \
             -e WAYLAND_DISPLAY \
