@@ -4,7 +4,19 @@ FROM python:3.11.10-bookworm
 WORKDIR /home/ee431
 RUN apt update
 # Install Core Tools
-RUN apt install -y git magic ngspice tcl-tclreadline build-essential flex bison libxpm-dev libgtk-3-dev gettext
+RUN apt install -y git ngspice tcl-tclreadline build-essential flex \
+    bison libxpm-dev libgtk-3-dev gettext m4 tcsh csh libx11-dev tcl-dev \
+    tk-dev libcairo2-dev libncurses-dev blt freeglut3-dev mesa-common-dev \
+    libgl1-mesa-dev libglu1-mesa-dev
+
+# Install Magic
+RUN git clone https://github.com/RTimothyEdwards/magic.git git_magic
+WORKDIR /home/ee431/git_magic
+RUN ./configure --prefix=/usr
+RUN make
+RUN make install
+WORKDIR /home/ee431
+
 # Install XSchem
 RUN wget http://repo.hu/projects/xschem/releases/xschem-3.4.4.tar.gz
 RUN tar xzvf xschem-3.4.4.tar.gz
