@@ -15,6 +15,7 @@ WORKDIR /home/ee431/git_magic
 RUN ./configure --prefix=/usr
 RUN make
 RUN make install
+ENV CAD_ROOT=/usr/lib/
 WORKDIR /home/ee431
 
 # Install XSchem
@@ -38,12 +39,21 @@ RUN make
 RUN make install
 WORKDIR /home/ee431
 
+# Install OpenPDK
 RUN git clone https://github.com/RTimothyEdwards/open_pdks.git git_open_pdks
 WORKDIR /home/ee431/git_open_pdks
 RUN ./configure --enable-sky130-pdk --with-sky130-variants=all --with-reference
 RUN make || true
 RUN make install
+ENV PDK_ROOT=/usr/local/share/pdk
 
+# Configure Magic with OpenPDK
+RUN ln -sf $PDK_ROOT/sky13A/libs.tech/magic/* $CAD_ROOT/magic/sys/
+RUN mkdir magic_template_project
+WORKDIR /home/ee431/magic_template_project
+RUN cp $PDK_ROOT/sky130A/libs.tech/magic/sky130A.magicrc .
+
+# Configure XSchem with OpenPDK
 WORKDIR /home/ee431
 COPY xschemrc /home/ee431/xschemrc
 RUN cp /usr/local/share/pdk/sky130A/libs.tech/xschem/xschemrc xschemrc2
