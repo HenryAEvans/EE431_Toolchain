@@ -20,7 +20,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
 fi
 
-docker pull fwilken/ee431_toolchain:v1.0s
+docker build . -t ee431_toolchain
 if ! [ $? -eq 0 ]; then
     sudo groupadd docker || true
     sudo usermod -aG docker $USER

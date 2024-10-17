@@ -1,3 +1,10 @@
+# Select Local or Remote Container
+if [ "$1" = "-l" ] || [ "$1" = "--local" ]; then
+    CONTAINER=ee431_toolchain
+else 
+    CONTAINER=fwilken/ee431_toolchain:v1.0s
+fi
+
 # Mac Install
 if [[ "$OSTYPE" == "darwin"* ]]; then
     set -x
@@ -8,7 +15,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     docker run -it \
         -v $(pwd)/workspace:/home/ee431/workspace:rw \
         -e DISPLAY=host.docker.internal:0 \
-        ee431_toolchain bash
+        $CONTAINER bash
 
 # Linux/WSL Install
 else 
@@ -22,5 +29,5 @@ else
                 -e XDG_RUNTIME_DIR \
                 -e PULSE_SERVER \
                 --net=host \
-                 ee431_toolchain bash
+                $CONTAINER bash
 fi

@@ -46,11 +46,14 @@ logout
 ### Step 3: Log In
 You might be logged out after the installation takes place. Simply log back in your computer and the installation will be complete. 
 
-# Running Magic
+# Running Tools (Magic, XSchem, Etc.)
 
 ### Step 1: Enter the Container
 To run magic, navigate to the directory where it is installed eg. `cd ~/EE431_Toolchain` then run the following command to enter the container
 
+```
+./run.sh
+```
 
 ### Step 2: Create a Project
 A project template has been created for you and resides in the home directory, you can make a copy of this and place it in the `workspace/` directory with the following command:
@@ -68,3 +71,8 @@ Then you can cd into the new project and start magic with:
 magic -rcfile=sky130A.magicrc
 ```
 
+# Container Development
+Do not worry about this if you are just using the tools, this section is for updating the tools!
+- Use `./build.sh` to locally build the docker container rather than pulling it from Dockerhub. This takes ~45 minutes.
+- Use `./run.sh -l` or `./run.sh --local` to run your locally built version, rather than the most recent published version.
+- Use `./publish.sh` to push that most recent build to dockerhub. Requires your docker account have access to [EE431 Dockerhub](https://hub.docker.com/repository/docker/fwilken/ee431_toolchain/general).
