@@ -51,6 +51,20 @@ You might be logged out after the installation takes place. Simply log back in y
 ### Step 1: Enter the Container
 To run magic, navigate to the directory where it is installed eg. `cd ~/EE431_Toolchain` then run the following command to enter the container
 
-### Step 2: Launch Magic
-Once in the container, simply type `magic` and the program should start up with a gui.
+
+### Step 2: Create a Project
+A project template has been created for you and resides in the home directory, you can make a copy of this and place it in the `workspace/` directory with the following command:
+
+``` shell
+cp -R magic_template_project workspace/<project_name>
+```
+> [!CAUTION]
+> Anything you don't place in the `workspace/` directory will be deleted when you restart the container
+
+### Step 3: Start Magic
+Then you can cd into the new project and start magic with:
+
+``` shell
+magic -rcfile=sky130A.magicrc
+```
 
