@@ -68,7 +68,7 @@ cp -R magic_template_project workspace/<project_name>
 Then you can cd into the new project and start magic with:
 
 ``` shell
-magic -rcfile=sky130A.magicrc
+magic -rcfile sky130A.magicrc
 ```
 
 # Container Development
