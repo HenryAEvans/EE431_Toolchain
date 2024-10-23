@@ -2,7 +2,7 @@
 if [ "$1" = "-l" ] || [ "$1" = "--local" ]; then
     CONTAINER=ee431_toolchain
 else 
-    CONTAINER=fwilken/ee431_toolchain:v1.0s
+    CONTAINER=fwilken/ee431_toolchain:v1.1s
 fi
 
 # Mac Install
