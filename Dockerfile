@@ -60,6 +60,13 @@ RUN cp /usr/local/share/pdk/sky130A/libs.tech/xschem/xschemrc xschemrc2
 RUN echo >> xschemrc
 RUN cat xschemrc2 >> xschemrc
 
+# Install Netgen
+RUN git clone https://github.com/RTimothyEdwards/netgen
+WORKDIR /home/ee431/netgen
+RUN ./configure && make && make install
+WORKDIR /home/ee431/
+RUN rm -rf netgen
+
 # Clean Up Artifacts
 RUN rm -rf git_open_pdks git_magic/ xschem-3.4.4 xschem-3.4.4.tar.gz xschem-gaw/ xschemrc2
 ENV HOME=/home/ee431
