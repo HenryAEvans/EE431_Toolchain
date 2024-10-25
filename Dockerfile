@@ -63,3 +63,4 @@ RUN cat xschemrc2 >> xschemrc
 # Clean Up Artifacts
 RUN rm -rf git_open_pdks git_magic/ xschem-3.4.4 xschem-3.4.4.tar.gz xschem-gaw/ xschemrc2
 ENV HOME=/home/ee431
+RUN cp /etc/skel/.bashrc ~/.bashrc
