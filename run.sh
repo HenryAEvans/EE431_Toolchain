@@ -13,7 +13,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     xhost +localhost
 
     docker run -it --rm \
-	--platform linux/amd64
+	--platform linux/amd64 \
         -v $(pwd)/workspace:/home/ee431/workspace:rw \
         -e DISPLAY=host.docker.internal:0 \
         -e "TERM=xterm-256color"\
