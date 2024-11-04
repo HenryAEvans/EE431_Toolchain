@@ -7,7 +7,7 @@ RUN apt update
 RUN apt install -y git ngspice tcl-tclreadline build-essential flex \
     bison libxpm-dev libgtk-3-dev gettext m4 tcsh csh libx11-dev tcl-dev \
     tk-dev libcairo2-dev libncurses-dev blt freeglut3-dev mesa-common-dev \
-    libgl1-mesa-dev libglu1-mesa-dev xterm
+    libgl1-mesa-dev libglu1-mesa-dev xterm gvim
 
 # Install Magic
 RUN git clone https://github.com/RTimothyEdwards/magic.git git_magic
